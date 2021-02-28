@@ -25,7 +25,7 @@ const App=()=>{
     <div className='container' ref={containerRef}>
       <div className='heading'>Kartik is currently : </div>
         {status.imgUrl && <img id="img" src={status.imgUrl} alt={status.description||'No Description Provided'}/>}
-        <p id='imgTxt'>{status.imgTxt}</p>
+        <p id='imgTxt'>{status.imgTxt||'Free AF'}</p>
     </div>
   )
 }
