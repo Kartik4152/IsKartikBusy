@@ -1,38 +1,47 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Truculenta&display=swap");
+
+:root {
+  --primary-background: #121212;
+  --primary-primary: #bb86fc;
+  --primary-secondary: #3700b3;
+  --secondary-secondary: #03dac5;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
+  border: var(--primary-primary) 10px solid;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--primary-background);
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.heading {
+  color: var(--primary-primary);
+  font-family: "Truculenta", sans-serif;
+  font-size: 8vw;
+}
+#imgTxt {
+  color: var(--secondary-secondary);
+  font-family: "Truculenta", sans-serif;
+  font-size: 5vw;
+}
+#img {
+  width: 20vw;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media screen and (min-width: 48em) {
+  .heading {
+    font-size: 5vw;
   }
-  to {
-    transform: rotate(360deg);
+  #imgTxt {
+    font-size: 2.5vw;
   }
 }

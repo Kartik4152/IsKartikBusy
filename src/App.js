@@ -1,25 +1,27 @@
-import logo from './logo.svg';
+import React,{useState,useEffect} from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+const App=()=>{
+  const [status,setStatus]=useState({});
+  useEffect(()=>{
+    const options={
+      method:'GET',
+      headers:{
+        'Content-Type':'application/json',
+        // 'Authorization':`${btoa(unescape(encodeURIComponent('your authorization string')))}`,
+      }};
+    fetch('myapi.com/getStatus',options)
+    .then(res=>res.json())
+    .then(result=>setStatus(result))
+    .catch(err=>setStatus({imgTxt:'Fixing This Shitty Website'}));
+  },[])
+  return(
+    <div className='container'>
+      <div className='heading'>Kartik is currently : </div>
+        {status.imgUrl && <img id="img" src={status.imgUrl} alt={status.description||'No Description Provided'}/>}
+        <p id='imgTxt'>{status.imgTxt}</p>
     </div>
-  );
+  )
 }
 
 export default App;
