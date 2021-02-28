@@ -10,7 +10,7 @@ const App=()=>{
         'Content-Type':'application/json',
         // 'Authorization':`${btoa(unescape(encodeURIComponent('your authorization string')))}`,
       }};
-    fetch('myapi.com/getStatus',options)
+    fetch('https://iskartikbusy.herokuapp.com/getStatus',options)
     .then(res=>res.json())
     .then(result=>setStatus(result))
     .catch(err=>setStatus({imgTxt:'Fixing This Shitty Website'}));
