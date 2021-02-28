@@ -12,9 +12,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+html {
+  height: -webkit-fill-available;
+}
 .container {
   border: var(--primary-primary) 10px solid;
-  height: 100vh;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
   width: 100vw;
   background-color: var(--primary-background);
   display: flex;
