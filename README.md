@@ -2,4 +2,4 @@
 
 ### Probably ;-;
 
-### But you could still check @ [iskartikbusy.netlify.app](https://www.iskartikbusy.netlify.app)
+### But you could still check @ [iskartikbusy.netlify.app](https://iskartikbusy.netlify.app/)
