@@ -4,6 +4,7 @@ import './App.css';
 
 const App=()=>{
   const [status,setStatus]=useState({});
+  const [isLoading,setIsLoading]=useState(true);
   const containerRef=useRef();
   useEffect(()=>{
     const options={
@@ -12,7 +13,10 @@ const App=()=>{
     };
     fetch('https://iskartikbusy.herokuapp.com/getStatus',options)
     .then(res=>res.json())
-    .then(result=>setStatus(result))
+    .then(result=>{
+      setStatus(result)
+      setIsLoading(false);
+    })
     .catch(err=>setStatus({imgTxt:'Fixing This Shitty Website'}));
     const changeHeight=()=>{
       containerRef.current.style.height=`${window.innerHeight}px`;
@@ -25,7 +29,7 @@ const App=()=>{
     <div className='container' ref={containerRef}>
       <div className='heading'>Kartik is currently : </div>
         {status.imgUrl && <img id="img" src={status.imgUrl} alt={status.description||'No Description Provided'}/>}
-        <p id='imgTxt'>{status.imgTxt||'Free AF'}</p>
+        <p id='imgTxt'>{isLoading?'Loading...':(status.imgTxt||'Free AF')}</p>
     </div>
   )
 }
